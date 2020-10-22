@@ -1,0 +1,27 @@
+<html>
+   <head>
+      <title>Caching test</title>
+   </head>
+
+   <body>
+     <form action="/action_page.php">
+        <label for="search">type what you want to search:</label><br>
+        <input type="text" id="product" name="product" value="nepal"><br>
+        <input type="button" id="set" value="set">
+        <input type="button" id="hash set" value="hash set">
+        <input type="button" id="list" value="list">
+      </form>
+   </body>
+   <script>
+       let req=document.getElementById('product').value;
+        document.getElementById('set').onclick = function() {
+        axios.post('http://localhost:1000/api/search?query=req', data).then(function (response) {
+    console.log(response);
+            alert(response.data);
+        }).catch(function (error) {
+            er_count = er_count + 1;
+            retry(er_count);
+        })
+    }
+   </script>
+</html>
